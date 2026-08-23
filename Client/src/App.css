@@ -1,0 +1,45 @@
+#Username {
+}
+
+#Title {
+
+
+}
+
+#Container {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  align-items: center;
+}
+
+#SearchResultBtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 5vh;
+  width: 50%;
+}
+
+#SearchResultPfp {
+  height: 5vh;
+  width: 5vh;
+}
+
+#SearchResultUsername {
+  text-align: center;
+  align-self: center;
+  width: 50%;
+
+}
+
+#SignedStatus {
+  text-align: right;
+}
+
+#SearchResults {
+  width: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
