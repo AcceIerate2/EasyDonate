@@ -1,17 +1,28 @@
 package Apis
 
 import (
+	"io"
 	"net/http"
+	"net/url"
 )
 
-func handleResponse(w http.ResponseWriter, r *http.Request) {
-	if (r.URL.Path) != "/api/searchUsers" {
-		return 
+const robloxUrl string = "https://users.roblox.com/v1/users/search?keyword=" 
+ 
+func handleKeywordResponse(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "http://localhost:5173")
+	w.Header().Set("Content-Type", "application/json")
+
+	username := r.URL.Query().Get("username")
+	response, errorMessage := http.Get(robloxUrl + url.QueryEscape(username))
+	if errorMessage != nil {
+		http.Error(w, "Failed to get usernames", http.StatusBadGateway)
+		return
 	}
 	
-	return r.Response.Body
+	defer response.Body.Close()
+	io.Copy(w, response.Body)
 }
 
-func Apis() {
-	http.HandleFunc("/api/searchUsers", handleResponse)
+func ConnectSearchUsers() {
+	http.HandleFunc("/api/searchUsers", handleKeywordResponse)
 }

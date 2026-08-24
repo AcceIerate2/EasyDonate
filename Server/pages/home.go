@@ -10,6 +10,6 @@ func handleResponse(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func ConnectIndex() {
+func ConnectHome() {
 	http.HandleFunc("/", handleResponse)
 }

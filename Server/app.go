@@ -1,6 +1,7 @@
 package main
 
 import (
+	Apis "EasyDonation/Server/apis"
 	Pages "EasyDonation/Server/pages"
 	"fmt"
 	"log"
@@ -9,6 +10,11 @@ import (
 
 func main() {
 	fmt.Println("Starting Server @ :8080")
-	Pages.ConnectIndex()
+
+	Pages.ConnectHome()
+	Apis.ConnectFetchAvatarHeadshot()
+	Apis.ConnectSearchUsers()
+	Apis.ConnectGetUser()
+
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
