@@ -21,16 +21,23 @@
   width: 50%;
 }
 
+  #continueBtn {
+    visibility: hidden;
+  }
+
 #SearchResultPfp {
   height: 5vh;
   width: 5vh;
 }
 
 #SearchResultUsername {
+  margin-left: 1vh;
+  margin-right: 1vh;
   text-align: center;
   align-self: center;
-  width: 50%;
-
+  width: 40%;
+  word-wrap:break-word;
+  flex-wrap: wrap;
 }
 
 #SignedStatus {
@@ -38,7 +45,7 @@
 }
 
 #SearchResults {
-  width: 50vh;
+  width: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
