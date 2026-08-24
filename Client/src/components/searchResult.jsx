@@ -1,6 +1,6 @@
-function SearchResult({ username, image, hasProfile }) {
+function SearchResult({ id, username, image, hasProfile, callback }) {
   function onClicked() {
-    console.log("Clicked");
+    callback(id);
   }
 
   return (

@@ -92,8 +92,14 @@ function App() {
     }, 400);
   }
 
-  function continueToNext() {
-    return 0;
+  function userChosen(key) {
+    console.log(key);
+    continueToNext(key);
+    toggleContinueBtnVisibility(true);
+  }
+
+  function continueToNext(key) {
+    return key;
   }
 
   return (
@@ -105,20 +111,22 @@ function App() {
         onChange={search}
       ></textarea>
 
-      <button id="continueBtn" onClick={continueToNext}>
-        Continue
-      </button>
-
       <div id="SearchResults">
         {results.map((user) => (
           <SearchResult
             key={user.id}
+            id={user.id}
             username={user.username}
             image={user.image}
             hasProfile={user.hasProfile}
+            callback={userChosen}
           />
         ))}
       </div>
+
+      <button id="continueBtn" onClick={continueToNext}>
+        Continue
+      </button>
     </div>
   );
 }
